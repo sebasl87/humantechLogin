@@ -1,0 +1,52 @@
+// ion-content{
+//   // --background:none;
+//   background-color: #8c53fc;
+//   // background-image: url('../../shared/assets/img/portada.svg');
+//   // background-repeat: no-repeat;
+//   background-size:cover;
+// }
+.getstart{
+  background-color: unset;
+}
+
+.already{
+  color: #000;
+}
+.divider {
+  display: flex;
+  
+  &:before,
+  &:after {
+    content: "";
+    flex: 1;
+  }
+}
+
+.line {
+  align-items: center;
+  margin: 1em -1em;
+  color: #ffffff;
+  
+  &:before,
+  &:after {
+    height: 1px;
+    margin: 0 1em;
+  }
+} 
+
+.one-line {
+  &:before,
+  &:after {
+     background: #cccccc;
+  }
+}
+
+.already {
+  display: block;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.margin50{
+  margin-top: 50%;
+}

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="humantech">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{'HOME.ingresar' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-row>
+    <ion-col>
+      <ion-img src="../../shared/assets/img/logoH.png" class="icon ion-margin"></ion-img>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="Email" [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">{{'REGISTRATION.password' | translate }}</ion-label>
+        <ion-input type="Password" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+        <ion-button color="danger" (click)="userLogin()" expand="block">
+          {{'HOME.ingresar' | translate }}
+        </ion-button>
+    </ion-col>
+  </ion-row>
+  <div class="ion-text-center ion-margin-top">
+    <a routerLink="./reset-pass"><small>{{'LOGIN.olvidecontra' | translate }}</small></a>
+  </div>
+</ion-content>

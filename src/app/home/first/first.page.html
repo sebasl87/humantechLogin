@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="humantech">
+    <ion-title class="ion-text-center">
+      {{'INDEX.hola' | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openLanguagePopover($event)">
+        <ion-icon name="flag" slot="icon-only">
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <ion-card color="humantech" class="ion-margin-vertical">
+      <h5 class="ion-padding">{{'INDEX.paso0' | translate }}</h5>
+      <ion-card-content class="ion-margin-vertical">
+        <ion-item>
+          <ion-text>{{'INDEX.paso1' | translate }}</ion-text>
+        </ion-item>
+        <ion-item>
+
+          <ion-text>{{'INDEX.paso2' | translate }}</ion-text>
+        </ion-item>
+        <ion-item>
+
+          <ion-text>{{'INDEX.paso3' | translate }}</ion-text>
+        </ion-item>
+        <ion-item>
+
+          <ion-text>{{'INDEX.paso4' | translate }}
+          </ion-text>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    <br>
+    <form name="userForm" #userForm="ngForm" (ngSubmit)="guardarCambios(userForm)">
+      <input type="hidden" name="uid" [(ngModel)]="uid">
+    <ion-button color="humantech" expand="block" type="ngSubmit" class="ion-margin-bottom">
+      {{'INDEX.continuemos' | translate }}</ion-button>
+  </form>
+  <ion-button color="danger" expand="block" (click)="salir()">{{'AVATAR.cerrar' | translate }}</ion-button>
+</ion-content>

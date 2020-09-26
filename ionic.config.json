@@ -1,0 +1,8 @@
+{
+  "name": "myselfHotel",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

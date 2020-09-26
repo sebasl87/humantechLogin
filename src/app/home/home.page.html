@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="humantech">
+    <ion-title class="ion-text-center">
+      Login Humantech
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)= "openLanguagePopover($event)">
+        <ion-icon name="flag" slot="icon-only">
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="getstart">
+  <ion-card class="ion-align-self-auto getstart">
+    <ion-img src="./assets/img/logoH.png" class="icon ion-margin"></ion-img>
+    <ion-card-content class="ion-align-self-center">
+      <span class="already">{{'HOME.nuevo' | translate }}</span>
+
+      <ion-button [routerLink]="['/registration']" expand="block" color="secondary">{{'HOME.registrarse' | translate }}</ion-button>
+
+      <span class="divider line one-line ">{{'HOME.o' | translate }}</span>
+
+      <span class="already">{{'HOME.yasos' | translate }}</span>
+
+      <ion-button [routerLink]="['/login']" expand="block" color="danger">{{'HOME.ingresar' | translate }}</ion-button>
+      <ion-button expand="block" (click)="openAppleSignIn()" color="dark" *ngIf="showAppleSignIn">
+        <ion-icon name="logo-apple" slot="start"></ion-icon>
+        Sign in with Apple
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
