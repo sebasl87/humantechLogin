@@ -44,17 +44,6 @@ export class IndexPage implements OnInit {
     })
   }
 
-  
-  // guardarCambios(userForm: NgForm): void {
-    
-  //   this.userSvc.addUser(userForm.value);
-  //   this.uid = userForm.value.uid;
-  //   this.router.navigate(['home/index', this.uid])
-
-  //   // console.log(userForm.value.uid);
-  //   userForm.resetForm();
-    
-  // }
 
   salir(){
     this.authSvc.logout();
