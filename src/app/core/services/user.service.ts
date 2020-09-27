@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { UserI, acompI, autoI } from '../interfaces/interfaces';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { UserI } from '../interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { firestore, storage } from 'firebase/app';
 
 
 @Injectable({
@@ -13,13 +12,10 @@ export class UserService {
 
   constructor(private db: AngularFirestore) {
   }
-  private userCollection: AngularFirestoreCollection<UserI>;
-  private users: Observable<UserI[]>;
   private userDoc: AngularFirestoreDocument<UserI>;
   private user: Observable<UserI>;
 
   public selectedUser: UserI = {};
-  public selectedAcomp: acompI = {};
 
 
   getOneUser(idUser: string) {
@@ -42,18 +38,11 @@ export class UserService {
   addUser(user: UserI): void {
     let uid = user.uid;
     this.db.collection('user').doc(`${uid}`).set(user);
-    this.db.collection('user').doc(`${uid}`).update({
-      delete: false
-    });
-
   }
 
   addUserIos(user): void {
     let uid = user.uid;
     this.db.collection('user').doc(`${uid}`).set(user);
-    this.db.collection('user').doc(`${uid}`).update({
-      delete: false
-    });
 
   }
 

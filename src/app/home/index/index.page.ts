@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class IndexPage implements OnInit {
 
   public uid: string;
-  public hayUsuario: any;
+  public nameUser: string;
 
   constructor(
     private authSvc: AuthService, 
@@ -25,8 +25,7 @@ export class IndexPage implements OnInit {
   ngOnInit() {
     this.authSvc.getUserAuth().subscribe(user => {
       this.uid = user.uid;
-      // console.log(this.uid);
-      this.primeraVez(this.uid);
+      this.getName(this.uid);
     })
   }
 
@@ -39,26 +38,23 @@ export class IndexPage implements OnInit {
     await popover.present();
   }
 
-  primeraVez(uid) {
+  getName(uid) {
     this.userSvc.getOneUser(uid).subscribe(user => {
-      this.hayUsuario = user.uid;
-      if(this.hayUsuario){
-        this.router.navigate(['home/index', uid])
-      }
+      this.nameUser = user.name
     })
   }
 
   
-  guardarCambios(userForm: NgForm): void {
+  // guardarCambios(userForm: NgForm): void {
     
-    this.userSvc.addUser(userForm.value);
-    this.uid = userForm.value.uid;
-    this.router.navigate(['home/index', this.uid])
+  //   this.userSvc.addUser(userForm.value);
+  //   this.uid = userForm.value.uid;
+  //   this.router.navigate(['home/index', this.uid])
 
-    // console.log(userForm.value.uid);
-    userForm.resetForm();
+  //   // console.log(userForm.value.uid);
+  //   userForm.resetForm();
     
-  }
+  // }
 
   salir(){
     this.authSvc.logout();

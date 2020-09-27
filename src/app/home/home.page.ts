@@ -19,7 +19,11 @@ export class HomePage {
   showAppleSignIn = false;
   user = null;
 
-  constructor(private authSvc: AuthService, public afAuth: AngularFireAuth, private router: Router, private popoverCtrl: PopoverController, private alertController: AlertController) { }
+  constructor(private authSvc: AuthService, 
+    public afAuth: AngularFireAuth, 
+    private router: Router, 
+    private popoverCtrl: PopoverController, 
+    private alertController: AlertController) { }
 
   async ngOnInit() {
 

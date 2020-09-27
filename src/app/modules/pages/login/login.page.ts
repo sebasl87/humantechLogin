@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
 
-import { User } from '../../../../shared/user.class';
+import { UserI } from '../../../core/interfaces/interfaces';
 import { AlertController } from '@ionic/angular';
+import { User } from '../../../core/interfaces/user.class';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  user: User = new User;
+  user: UserI = new User;
 
   constructor(private authSvc: AuthService, private router: Router, public alertController: AlertController) { }
 
