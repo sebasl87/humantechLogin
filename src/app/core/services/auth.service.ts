@@ -8,7 +8,6 @@ import { auth } from 'firebase/app';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
-import { UserService } from './user.service';
 
 
 @Injectable({
@@ -22,8 +21,7 @@ export class AuthService {
     private router: Router,
     private db: AngularFirestore,
     public platform: Platform,
-    private storage: Storage,
-    private userSvc: UserService) {
+    private storage: Storage) {
 
     afAuth.authState.subscribe(user => (this.isLogged = user));
 

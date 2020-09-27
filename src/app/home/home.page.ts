@@ -51,7 +51,7 @@ export class HomePage {
       .then(async (res) => {
         if (res.response && res.response.identityToken) {
           this.authSvc.createFirebaseuser(res.response).then(res => {
-            this.router.navigateByUrl('home/first');
+            this.router.navigateByUrl('home/index');
           }).catch(err => alert(err))
         } else {
           this.presentAlert();

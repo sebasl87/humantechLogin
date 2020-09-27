@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="humantech">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'LOGIN.olvidecontra' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-row>
+    <ion-col>
+      <ion-img src="./assets/img/logoH.png" class="icon ion-margin"></ion-img>
+      <ion-card class="ion-align-self-auto">
+        <ion-card-content class="ion-text-center">
+          <small>{{'LOGIN.escribirmail' | translate }}</small>
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="Email" [(ngModel)]="email"></ion-input>
+          </ion-item>
+          <ion-button color="primary" (click)="sendLinkReset()" expand="block">
+            {{'LOGIN.enviarlink' | translate }}
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

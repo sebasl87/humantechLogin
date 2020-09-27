@@ -1,13 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Storage } from '@ionic/storage';
-import { BookService } from 'src/app/core/services/book.service';
-import { BookI } from 'src/app/interfaces/interfaces';
-import { ModalController } from '@ionic/angular';
-import { QrComponent } from '../checkin/components/qr/qr.component';
 import { UserService } from 'src/app/core/services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { PopoverController } from '@ionic/angular';
+import { LanguageComponent } from 'src/app/core/header/language/language.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -16,84 +13,54 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class IndexPage implements OnInit {
 
-  sliders = [
-    {
-      img: '../../assets/img/slide1.svg'
-    },
-    {
-      img: '../../assets/img/slide2.svg'
-    },
-    {
-      img: '../../assets/img/slide3.svg'
-    },
-    {
-      img: '../../assets/img/slide4.svg'
-    },
-    {
-      img: '../../assets/img/slide5.svg'
-    },
-    {
-      img: '../../assets/img/slide6.svg'
-    }
-  ];
-  slideOptsOne = {
-    initialSlide: 0,
-    slidesPerView: 1,
-    autoplay: true,
-    speed: 800,
-    zoom: true,
-    setWrapperSize: true
-  };
-  name: string;
-  photo: string;
-  uid: string;
-  booksCH: BookI[] = null;
-  booksOUT: BookI[] = null;
-  foto: string = null;
-  hayUID: any;
-  public idUser: string = "";
-
+  public uid: string;
   public hayUsuario: any;
 
-  collectionRef = this.db.collection<BookI[]>('books').ref;
-
-  constructor(private authSvc: AuthService, private db: AngularFirestore, private storage: Storage, private bookSvc: BookService, private modal: ModalController, private userSvc: UserService, private route: ActivatedRoute) { }
+  constructor(
+    private authSvc: AuthService, 
+    private userSvc: UserService, 
+    private popoverCtrl: PopoverController, 
+    private router: Router) { }
 
   ngOnInit() {
+    this.authSvc.getUserAuth().subscribe(user => {
+      this.uid = user.uid;
+      // console.log(this.uid);
+      this.primeraVez(this.uid);
+    })
+  }
 
-    if (this.route.snapshot.params['id']) {
+  async openLanguagePopover(ev){
+    const popover = await this.popoverCtrl.create({
+      component: LanguageComponent,
+      event: ev,
+      mode: 'ios'
+    });
+    await popover.present();
+  }
 
-      this.uid = this.route.snapshot.params['id'];
-
-      this.bookSvc.bookChecked(this.uid).subscribe(booksch => {
-        this.booksCH = booksch
-      });
-
-      this.bookSvc.bookOut(this.uid).subscribe(booksch => {
-        this.booksOUT = booksch
-
-      });
-
-    } else {
-
-      this.authSvc.getUserAuth().subscribe(user => {
-        this.name = user.displayName;
-        this.photo = user.photoURL;
-        this.uid = user.uid;
-
-      });
-    }
+  primeraVez(uid) {
+    this.userSvc.getOneUser(uid).subscribe(user => {
+      this.hayUsuario = user.uid;
+      if(this.hayUsuario){
+        this.router.navigate(['home/index', uid])
+      }
+    })
   }
 
   
-  mostrarQR(id) {
-    this.modal.create({
-      component: QrComponent,
-      componentProps: {
-        id: id
-      }
-    }).then((modal) => modal.present())
+  guardarCambios(userForm: NgForm): void {
+    
+    this.userSvc.addUser(userForm.value);
+    this.uid = userForm.value.uid;
+    this.router.navigate(['home/index', this.uid])
 
+    // console.log(userForm.value.uid);
+    userForm.resetForm();
+    
   }
 
+  salir(){
+    this.authSvc.logout();
+  }
 }

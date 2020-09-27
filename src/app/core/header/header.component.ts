@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { PopoverController, MenuController } from '@ionic/angular';
 import { AvataruserComponent } from './avataruser/avataruser.component';
-import { Componente } from 'src/app/interfaces/interfaces';
+import { Componente } from '../interfaces/interfaces';
 import { Router } from '@angular/router';
 
 
