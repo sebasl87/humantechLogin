@@ -1,0 +1,30 @@
+{
+    "HOME":{
+        "nuevo": "Are new?",
+        "registrarse": "Create Account",
+        "o": "or",
+        "yasos": "Already have an account?",
+        "ingresar": "Login",
+        "ingresarcon": "Login with"
+
+    },
+    "REGISTRATION":{
+        "registrarse": "Create Account",
+        "nombre": "Name",
+        "guardar":"Save",
+        "password": "Password"
+    },
+    "LOGIN":{
+        "olvidecontra": "Forgot Password?",
+        "escribirmail": "Enter your email address and we´ll send you instructions to reset your password.",
+        "enviarlink": "Send"
+    },
+    "INDEX":{
+        "hola": "Hello ",
+        "paso1": "Thank you for Login. See you later..."
+    },
+    "AVATAR":{
+        "cerrar": "Sign Out",
+        "idioma": "Language"
+    }
+}
