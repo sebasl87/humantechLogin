@@ -1,0 +1,29 @@
+{
+    "HOME":{
+        "nuevo": "Você é novo?",
+        "registrarse": "Registro",
+        "o": "ou",
+        "yasos": "Você já é usuário?",
+        "ingresar": "Entrar",
+        "ingresarcon": "Entrar com"
+    },
+    "REGISTRATION":{
+        "registrarse": "Registro",
+        "nombre": "Nome",
+        "guardar":"Salve",
+        "password": "Senha"
+    },
+    "LOGIN":{
+        "olvidecontra": "Lembrar senha",
+        "escribirmail": "Escreva seu email para enviar as instruções para recuperar sua senha.",
+        "enviarlink": "Enviar Link"
+    },
+    "INDEX":{
+        "hola": "Olá ",
+        "paso1": "Obrigado pela sua ligaxāo. Até logo..."
+    },
+    "AVATAR":{
+        "cerrar": "Fechar App",
+        "idioma": "Língua"
+    }
+}

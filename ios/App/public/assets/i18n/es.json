@@ -1,0 +1,29 @@
+{
+    "HOME":{
+        "nuevo": "Sos nuevo?",
+        "registrarse": "Registrarse",
+        "o": "ó",
+        "yasos": "Ya sos Usuario?",
+        "ingresar": "Ingresar",
+        "ingresarcon": "Ingresar con"
+    },
+    "REGISTRATION":{
+        "registrarse": "Registrarse",
+        "nombre": "Nombre",
+        "guardar": "Guardar",
+        "password": "Contraseña"
+    },
+    "LOGIN":{
+        "olvidecontra": "Olvidé mi Contraseña",
+        "escribirmail": "Escribe tu correo para enviarte las instruccionespara recuperar tu contraseña.",
+        "enviarlink": "Enviar Link"
+    },
+    "INDEX":{
+        "hola": "Hola! ",
+        "paso1": "Muchas gracias por ingresar al sistema! Hasta pronto..."
+    },
+    "AVATAR":{
+        "cerrar": "Cerrar Sesión",
+        "idioma": "Idioma"
+    }
+}

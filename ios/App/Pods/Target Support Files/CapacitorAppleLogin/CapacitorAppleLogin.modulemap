@@ -1,0 +1,6 @@
+framework module CapacitorAppleLogin {
+  umbrella header "CapacitorAppleLogin-umbrella.h"
+
+  export *
+  module * { export * }
+}
